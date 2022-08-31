@@ -1,47 +1,34 @@
+# -*- coding: utf-8 -*-
+from src.functions.Functions import Functions as Selenium
 import unittest
 import time
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.by import By
-
-horaGlobal = time.strftime("%H%M%S")
+import pytest
 
 class TestCase(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.implicitly_wait(10)
-        self.driver.maximize_window()
-
-        # INGRESO A LA APP DE REGISTRO
-        self.driver.get("http://opencart.abstracta.us/index.php?route=common/home")
+        Selenium.abrir_navegador(self)
+        Selenium.get_json_file(self, "opencart")
 
     def test_006(self):
         # MAIN
-        self.my_Account = self.driver.find_element(by=By.XPATH, value="//a[@title='My Account']").click()
-        self.register = self.driver.find_element(by=By.XPATH, value="//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(text(),'Register')]").click()
-        self.first_Name = self.driver.find_element(by=By.XPATH, value="//input[@id='input-firstname']")
-        self.first_Name.send_keys("yohann")
-        self.last_Name = self.driver.find_element(by=By.XPATH, value="//input[@id='input-lastname']")
-        self.last_Name.send_keys("romeroo")
-        self.email = self.driver.find_element(by=By.XPATH, value="//input[@id='input-email']")
-        self.email.send_keys("yohanrr86@gmail.com")
-        self.telefono = self.driver.find_element(by=By.XPATH, value="//input[@id='input-telephone']")
-        self.telefono.send_keys("970747425")
-        self.password = self.driver.find_element(by=By.XPATH, value="//input[@id='input-password']")
-        self.password.send_keys("HolaComoEstas")
-        self.confirmar = self.driver.find_element(by=By.XPATH, value="//input[@id='input-confirm']")
-        self.confirmar.send_keys("HolaComoEstas")
-        self.agree = self.driver.find_element(by=By.XPATH, value="//input[@name='agree']").click()
-
-        self.continuar = self.driver.find_element(by=By.XPATH,value="//input[@value='Continue']").click()
-
-        time.sleep(5)
-
+        Selenium.get_elements(self, "my_Account").click()
+        Selenium.get_elements(self, "register").click()
+        Selenium.get_elements(self, "first_NameR").send_keys("yohann")
+        Selenium.get_elements(self, "last_NameR").send_keys("romeroo")
+        Selenium.get_elements(self, "emailR").send_keys("yohanrr86@gmail.com")
+        Selenium.get_elements(self, "telefonoR").send_keys("970747425")
+        Selenium.get_elements(self, "passwordR").send_keys("HolaComoEstas")
+        Selenium.get_elements(self, "password_ConfirmR").send_keys("HolaComoEstas")
+        Selenium.get_elements(self, "last_NameR").send_keys("romeroo")
+        Selenium.get_elements(self, "last_NameR").send_keys("romeroo")
+        Selenium.get_elements(self, "checkbutton_AgreeR").click()
+        Selenium.get_elements(self, "button_ContinueR").click()
+        Selenium.esperar(self,5)
         title = "Test_006"
-        self.driver.get_screenshot_as_file(f"../data/capturas/{title}-{horaGlobal}.png")
+        Selenium.capturar_pantalla(self)
 
     def tearDown(self):
-        self.driver.close()
+        Selenium.tearDown(self)
 
 
 if __name__ == '__main__':

@@ -1,38 +1,26 @@
+# -*- coding: utf-8 -*-
+from src.functions.Functions import Functions as Selenium
 import unittest
 import time
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.by import By
-
-horaGlobal = time.strftime("%H%M%S")
-
+import pytest
 class TestCase(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.implicitly_wait(10)
-        self.driver.maximize_window()
-
-        # INGRESO A LA APP DE REGISTRO
-        self.driver.get("http://opencart.abstracta.us/index.php?route=common/home")
+        Selenium.abrir_navegador(self)
+        Selenium.get_json_file(self, "opencart")
 
     def test_002(self):
         # MAIN
-        self.my_Account = self.driver.find_element(by=By.XPATH, value="//a[@title='My Account']").click()
-        self.login = self.driver.find_element(by=By.XPATH, value="//a[normalize-space()='Login']").click()
-
-        self.button_Login = self.driver.find_element(by=By.XPATH, value="//input[@value='Login']").click()
-
-        self.RESULTADO = self.driver.find_element(by=By.XPATH,value="(//div[@class='alert alert-danger alert-dismissible'])[1]").text
-        time.sleep(5)
-
-        assert self.RESULTADO == "Warning: No match for E-Mail Address and/or Password.","El resultado es diferente al esperado"
+        Selenium.get_elements(self,"my_Account").click()
+        Selenium.get_elements(self,"login").click()
+        Selenium.get_elements(self,"button_LoginL").click()
+        Resultado = Selenium.get_text(self,"notmarchfor_Email_PasswordL")
+        Selenium.esperar(self,10)
+        Selenium.assert_text(self,"notmarchfor_Email_PasswordL","El resultado es diferente al esperado")
 
         title = "Test_002"
-        self.driver.get_screenshot_as_file(f"../data/capturas/{title}-{horaGlobal}.png")
-
+        Selenium.capturar_pantalla(self)
     def tearDown(self):
-        self.driver.close()
-
+        Selenium.tearDown(self)
 
 if __name__ == '__main__':
     unittest.main()

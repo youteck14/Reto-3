@@ -1,0 +1,81 @@
+{
+  "my_Account": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[@title='My Account']"
+  },
+
+  "login": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//a[normalize-space()='Login']"
+  },
+
+  "register": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(text(),'Register')]"
+  },
+
+  "email_AddressL": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='input-email']"
+  },
+
+  "passwordL": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='input-password']"
+  },
+
+  "button_LoginL": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Login']"
+  },
+
+  "notmarchfor_Email_PasswordL": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//div[@class='alert alert-danger alert-dismissible']"
+  },
+
+  "forgotten_PasswordL": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//div[@class='form-group']//a[contains(text(),'Forgotten Password')]"
+  },
+
+  "first_NameR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='input-firstname']"
+  },
+
+  "last_NameR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='input-lastname']"
+  },
+
+  "emailR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='input-email']"
+  },
+
+  "telefonoR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='input-telephone']"
+  },
+
+  "passwordR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='input-password']"
+  },
+
+  "password_ConfirmR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@id='input-confirm']"
+  },
+
+  "checkbutton_AgreeR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@name='agree']"
+  },
+
+  "button_ContinueR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//input[@value='Continue']"
+  }
+}
