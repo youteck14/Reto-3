@@ -15,14 +15,12 @@ class TestCase(unittest.TestCase):
         Selenium.get_elements(self, "login").click()
         Selenium.get_elements(self, "email_AddressL").send_keys("sanson121416@gmail.com")
         Selenium.get_elements(self, "passwordL").send_keys("counter141412443623322324")
-
         Selenium.get_elements(self,"button_LoginL").click()
 
-        Resultado = Selenium.get_text(self, "notmarchfor_Email_PasswordL")
         Selenium.esperar(self, 10)
 
 
-        Selenium.assert_text(self,"notmarchfor_Email_PasswordL","El resultado es diferente al esperado")
+        Selenium.assert_text(self,"notmarchfor_Email_PasswordL","Warning: No match for E-Mail Address and/or Password.")
 
         title = "Test_003"
         Selenium.capturar_pantalla(self)

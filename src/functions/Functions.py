@@ -557,7 +557,7 @@ class Functions(Inicializar):
                 print("get_text: No se encontró el elemento: " + self.json_ValueToFind)
                 return False
 
-    def assert_text(self, locator, TEXTO):  # COMPARA EL VALOR DE UN TEXTO ESPERADO
+    def assert_text(self, locator, TEXTO):#COMPARA EL VALOR DE UN TEXTO ESPERADO
 
         Get_Entity = Functions.get_entity(self, locator)
 
@@ -567,31 +567,30 @@ class Functions(Inicializar):
             if self.json_GetFieldBy.lower() == "id":
                 wait = WebDriverWait(self.driver, 15)
                 wait.until(EC.presence_of_element_located((By.ID, self.json_ValueToFind)))
-                ObjText = self.driver.find_element(by=By.ID, value=self.json_ValueToFind).text
+                ObjText = self.driver.find_element(by=By.ID,value=self.json_ValueToFind).text
 
             if self.json_GetFieldBy.lower() == "name":
                 wait = WebDriverWait(self.driver, 15)
                 wait.until(EC.presence_of_element_located((By.NAME, self.json_ValueToFind)))
-                ObjText = self.driver.find_element(by=By.NAME, value=self.json_ValueToFind).text
+                ObjText = self.driver.find_element(by=By.NAME,value=self.json_ValueToFind).text
 
             if self.json_GetFieldBy.lower() == "xpath":
                 wait = WebDriverWait(self.driver, 15)
                 wait.until(EC.presence_of_element_located((By.XPATH, self.json_ValueToFind)))
-                ObjText = self.driver.find_element(by=By.XPATH, value=self.json_ValueToFind).text
+                ObjText = self.driver.find_element(by=By.XPATH,value=self.json_ValueToFind).text
 
             if self.json_GetFieldBy.lower() == "link":
                 wait = WebDriverWait(self.driver, 15)
                 wait.until(EC.presence_of_element_located((By.PARTIAL_LINK_TEXT, self.json_ValueToFind)))
-                ObjText = self.driver.find_element(by=By.PARTIAL_LINK_TEXT, value=self.json_ValueToFind).text
+                ObjText = self.driver.find_element(by=By.PARTIAL_LINK_TEXT,value=self.json_ValueToFind).text
 
             if self.json_GetFieldBy.lower() == "css":
                 wait = WebDriverWait(self.driver, 15)
                 wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, self.json_ValueToFind)))
-                ObjText = self.driver.find_elementr(by=By.CSS_SELECTOR, value=self.json_ValueToFind).text
+                ObjText = self.driver.find_element(by=By.CSS_SELECTOR,value=self.json_ValueToFind).text
 
         print("Verificar Texto: el valor mostrado en: " + locator + " es: " + ObjText + " el esperado es: " + TEXTO)
         assert TEXTO == ObjText, "Los valores comparados no coinciden"
-
     ##########################################################################
     #################   -=DATA DE ESCENARIO=-                ################
     ##########################################################################

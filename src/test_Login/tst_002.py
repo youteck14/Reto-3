@@ -13,9 +13,8 @@ class TestCase(unittest.TestCase):
         Selenium.get_elements(self,"my_Account").click()
         Selenium.get_elements(self,"login").click()
         Selenium.get_elements(self,"button_LoginL").click()
-        Resultado = Selenium.get_text(self,"notmarchfor_Email_PasswordL")
         Selenium.esperar(self,10)
-        Selenium.assert_text(self,"notmarchfor_Email_PasswordL","El resultado es diferente al esperado")
+        Selenium.assert_text(self,"notmarchfor_Email_PasswordL","Warning: No match for E-Mail Address and/or Password.")
 
         title = "Test_002"
         Selenium.capturar_pantalla(self)

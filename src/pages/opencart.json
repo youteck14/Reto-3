@@ -54,6 +54,11 @@
     "ValueToFind": "//input[@id='input-email']"
   },
 
+  "email_AlreadyRegistered": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//div[@class='alert alert-danger alert-dismissible']"
+  },
+
   "telefonoR": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//input[@id='input-telephone']"
@@ -77,5 +82,30 @@
   "button_ContinueR": {
     "GetFieldBy": "Xpath",
     "ValueToFind": "//input[@value='Continue']"
+  },
+
+  "firstname_HaveBetweenR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//div[contains(text(),'First Name must be between 1 and 32 characters!')]"
+  },
+  "lastname_HaveBetweenR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//div[contains(text(),'Last Name must be between 1 and 32 characters!')]"
+  },
+  "email_DoesnotapeearR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//div[contains(text(),'E-Mail Address does not appear to be valid!')]"
+  },
+  "telephone_HaveBetweenR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//div[contains(text(),'Telephone must be between 3 and 32 characters!')]"
+  },
+  "pass_HaveBetweenR": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//div[contains(text(),'Password must be between 4 and 20 characters!')]"
+  },
+  "passConfirm": {
+    "GetFieldBy": "Xpath",
+    "ValueToFind": "//div[contains(text(),'Password confirmation does not match password!')]"
   }
 }

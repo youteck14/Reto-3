@@ -19,8 +19,6 @@ class TestCase(unittest.TestCase):
         Selenium.get_elements(self, "telefonoR").send_keys("970747425")
         Selenium.get_elements(self, "passwordR").send_keys("HolaComoEstas")
         Selenium.get_elements(self, "password_ConfirmR").send_keys("HolaComoEstas")
-        Selenium.get_elements(self, "last_NameR").send_keys("romeroo")
-        Selenium.get_elements(self, "last_NameR").send_keys("romeroo")
         Selenium.get_elements(self, "checkbutton_AgreeR").click()
         Selenium.get_elements(self, "button_ContinueR").click()
         Selenium.esperar(self,5)
